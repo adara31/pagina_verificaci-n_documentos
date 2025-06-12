@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Institución B - Verificar Documento{% endblock %}
+{% block content %}
+<h2>Institución B - Verificar Documento Recibido</h2>
+
+<form method="post" action="/verificar" enctype="multipart/form-data">
+    <label>Documento PDF recibido:</label><br>
+    <input type="file" name="documento" required><br><br>
+
+    <label>Archivo de Firma (.sig):</label><br>
+    <input type="file" name="signature_file" required><br><br>
+
+    <input type="submit" value="Verificar Documento">
+</form>
+
+{% endblock %}
+
+

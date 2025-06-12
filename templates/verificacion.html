@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}Verificación de Documento{% endblock %}
+
+{% block content %}
+<h2>Verificación del Documento: {{ filename }}</h2>
+
+<p>Firma válida: <strong>{{ '✅ Sí' if es_valida else '❌ No' }}</strong></p>
+<p>Hash local original: {{ hash_local }}</p>
+<p>Hash recalculado: {{ hash_recalculado }}</p>
+
+{% if es_valida and hash_local == hash_recalculado %}
+    <h3 style="color:green;">✅ Documento Verificado Correctamente</h3>
+{% else %}
+    <h3 style="color:red;">❌ El documento fue alterado o la firma no es válida</h3>
+{% endif %}
+
+<br>
+<a href="/panel_a">Volver al Panel de Institución A</a>
+{% endblock %}
+

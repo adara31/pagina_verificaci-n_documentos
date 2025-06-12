@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Institución A - Firmar Documento{% endblock %}
+{% block content %}
+<h2>Institución A - Subir y Firmar Documento</h2>
+
+<form method="post" action="/firmar" enctype="multipart/form-data">
+    <label>Documento PDF:</label><br>
+    <input type="file" name="file" required><br>
+    <input type="submit" value="Firmar y Generar Hash + Firma">
+</form>
+
+{% if documento %}
+    <h3>Documento procesado:</h3>
+    <p>Descargue el documento y los archivos generados:</p>
+    <ul>
+        <li><a href="/descargar/{{ documento }}">📄 Descargar Documento</a></li>
+        {% if hash_file %}
+            <li><a href="/descargar/{{ hash_file }}">📝 Descargar Hash (.hash.txt)</a></li>
+        {% endif %}
+        {% if signature_file %}
+            <li><a href="/descargar/{{ signature_file }}">🔐 Descargar Firma (.sig)</a></li>
+        {% endif %}
+    </ul>
+{% endif %}
+
+{% endblock %}
+

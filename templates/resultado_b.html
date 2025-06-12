@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Resultado de Verificación{% endblock %}
+{% block content %}
+<h2>Resultado de Verificación</h2>
+<p><strong>Hash recibido:</strong><br>{{ hash_recibido }}</p>
+<p><strong>Hash calculado a partir del documento:</strong><br>{{ hash_local }}</p>
+
+{% if valido %}
+    <h3 style="color:green;">✅ El documento es VÁLIDO</h3>
+{% else %}
+    <h3 style="color:red;">❌ El documento NO es válido</h3>
+{% endif %}
+
+<br>
+<a href="/panel_b">⬅️ Volver al Panel de Institución B</a>
+{% endblock %}

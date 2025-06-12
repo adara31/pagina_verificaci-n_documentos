@@ -1,0 +1,9 @@
+<!doctype html>
+<html>
+<head><title>Firma exitosa</title></head>
+<body>
+    <h1>Institución B - Documento firmado</h1>
+    <p>El documento {{ filename }} ha sido firmado correctamente.</p>
+    <a href="{{ url_for('verificar', filename=filename) }}">Verificar firma en Institución A</a>
+</body>
+</html>
